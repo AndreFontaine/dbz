@@ -1,0 +1,10 @@
+<h5 class="my-4 mx-2"> Add Character </h5>
+<div class="container">
+  <form>
+
+    <input [ngModel]="name" class="form-control mb-2" type="text" name="name" id="name" placeholder="name">
+    <input [ngModel]="power" class="form-control mb-2" type="number" name="power" id="power" placeholder="power">
+    <button (click)="addCharacter()" class="btn btn-primary"> + </button>
+
+  </form>
+</div>
