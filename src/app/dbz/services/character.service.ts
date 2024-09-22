@@ -14,4 +14,15 @@ export class CharacterService {
     { id: uuid(), name: 'Krillin', power: 5020 },
   ];
 
+  deleteCharacter(id: string) {
+    if(id) {
+      console.log(`id: ${id}`);
+      this.characters = this.characters.filter(element => element.id !== id);
+    }
+  }
+
+  addCharacter(character:Character) {
+    this.characters.push(character);
+  }
+
 }

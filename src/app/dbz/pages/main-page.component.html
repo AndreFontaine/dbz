@@ -1,2 +1,18 @@
-<dbz-character-list></dbz-character-list>
-<dbz-add-character></dbz-add-character>
+<h1>Dragon Ball Z</h1>
+<hr />
+<div class="container">
+  <dbz-character-list
+    [characters]="characters"
+    (emitCharacterId)="onRemoveCharacter($event)"
+  >
+  </dbz-character-list>
+  <dbz-character-list
+    [characters]="characters"
+    (emitCharacterId)="onRemoveCharacter($event)"
+  >
+  </dbz-character-list>
+  <dbz-add-character
+    (emitCharacter)="onAddCharacter($event)"
+  >
+  </dbz-add-character>
+</div>

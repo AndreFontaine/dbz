@@ -1,24 +1,23 @@
-import { Component } from '@angular/core';
-import { CharacterService } from '../../services/character.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../interfaces/character.interface';
 
 
 @Component({
   selector: 'dbz-character-list',
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
+  templateUrl: './list.component.html'
 })
-export class ListComponent {
+export class ListCharacterComponent {
 
-  characters: Character[];
-  constructor(private service: CharacterService) {
-    this.characters = this.service.characters;
-  }
+  @Input()
+  public characters: Character[] = [];
+
+  @Output()
+  public emitCharacterId: EventEmitter<string> = new EventEmitter;
+
+  constructor() { }
 
   removeCharacter(id:string) {
-    if(id) {
-      this.characters = this.characters.filter(element => element.id !== id);
-    }
+    this.emitCharacterId.emit(id);
   }
 
 }
