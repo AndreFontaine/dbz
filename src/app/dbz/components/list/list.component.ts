@@ -12,12 +12,10 @@ export class ListCharacterComponent {
   public characters: Character[] = [];
 
   @Output()
-  public emitCharacterId: EventEmitter<string> = new EventEmitter;
+  public onDeleteCharacter: EventEmitter<string> = new EventEmitter;
 
-  constructor() { }
-
-  removeCharacter(id:string) {
-    this.emitCharacterId.emit(id);
+  emitRemoveCharacter(id:string): void {
+    this.onDeleteCharacter.emit(id);
   }
 
 }

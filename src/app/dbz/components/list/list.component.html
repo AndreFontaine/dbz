@@ -1,14 +1,14 @@
 <h4 class="my-4 mx-2">Characters</h4>
 <ul class="list-group m-4">
-  <li
+  <li *ngFor="let character of characters; index as i"
     class="list-group-item d-flex justify-content-between align-items-center"
-    *ngFor="let character of characters; index as i">
+    [ngClass]="{'list-group-item-success': i === 0 }">
     <div>
-        <span class="text-primary"> {{ i + 1 }}. </span>
-        <span>{{ character.name }} - </span>
+        <span class="text-primary px-1"> {{ i + 1 }}. </span>
+        <span class="px-1">{{ character.name }} - </span>
         <strong>Power: </strong>
-        <span>{{ character.power }}</span>
+        <span class="px-1">{{ character.power }}</span>
       </div>
-      <button (click)="removeCharacter(character.id || '')" class="btn btn-danger"> X </button>
+      <button (click)="emitRemoveCharacter(character.id || '')" class="btn btn-danger"> X </button>
   </li>
 </ul>

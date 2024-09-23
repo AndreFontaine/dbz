@@ -14,15 +14,16 @@ export class CharacterService {
     { id: uuid(), name: 'Krillin', power: 5020 },
   ];
 
-  deleteCharacter(id: string) {
-    if(id) {
-      console.log(`id: ${id}`);
-      this.characters = this.characters.filter(element => element.id !== id);
-    }
+  addCharacter(character:Character): void {
+    const newCharacter = { ...character, id: uuid() };
+    this.characters.push(newCharacter);
   }
 
-  addCharacter(character:Character) {
-    this.characters.push(character);
+  deleteCharacter(id: string): void {
+    if(id) {
+      const index = this.characters.findIndex((element) => element.id === id);
+      this.characters.splice(index, 1);
+    }
   }
 
 }
