@@ -9,16 +9,17 @@ import { Character } from '../components/interfaces/character.interface';
 
 export class DbzMainPageComponent {
 
-  public characters: Character[] = this.service.characters;
-
   constructor(private service: CharacterService) { }
+
+  get characters(): Character[] {
+    return [...this.service.characters];
+  }
 
   onAddCharacter(character: Character): void {
     this.service.addCharacter(character);
   }
 
   onRemoveCharacter(id:string): void {
-    console.log(`$event: ${id}`)
     this.service.deleteCharacter(id);
   }
 

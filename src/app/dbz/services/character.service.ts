@@ -19,10 +19,9 @@ export class CharacterService {
     this.characters.push(newCharacter);
   }
 
-  deleteCharacter(id: string): void {
+  deleteCharacter(id?: string): void {
     if(id) {
-      const index = this.characters.findIndex((element) => element.id === id);
-      this.characters.splice(index, 1);
+      this.characters = this.characters.filter(character => character.id !== id);
     }
   }
 
